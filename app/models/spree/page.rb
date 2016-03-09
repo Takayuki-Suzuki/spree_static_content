@@ -18,6 +18,8 @@ class Spree::Page < ActiveRecord::Base
 
   before_save :update_positions_and_slug
 
+  self.whitelisted_ransackable_associations = []
+
   def initialize(*args)
     super(*args)
     last_page = Spree::Page.last
